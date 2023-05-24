@@ -1,0 +1,18 @@
+{
+  "name": "conchayorocc",
+  "version": "1.0.0",
+  "description": "Neste repositório serão armazenados os artefatos relativos ao projeto",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "cd backend && npm install && npm run build && npm run start:dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/conchayorocc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nestjs/config": "^2.3.2"
+  }
+}
