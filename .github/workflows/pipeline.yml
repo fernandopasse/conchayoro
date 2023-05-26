@@ -42,9 +42,9 @@ jobs:
           name: ebconfig
           path: .
       - run: |
-          sed -i='' "s/<AWS_ACCOUNT_ID>/$AWS_ACCOUNT_ID/"Dockerrun.aws.json
-          sed -i='' "s/<PROJECT_NAME>/$PROJECT_NAME/"Dockerrun.aws.json
-          sed -i='' "s/<MODULE_NAME>/$MODULE_NAME/"Dockerrun.aws.json
+          sed -i='' "s/<AWS_ACCOUNT_ID>/$AWS_ACCOUNT_ID/" Dockerrun.aws.json
+          sed -i='' "s/<PROJECT_NAME>/$PROJECT_NAME/" Dockerrun.aws.json
+          sed -i='' "s/<MODULE_NAME>/$MODULE_NAME/" Dockerrun.aws.json
           sed -i='' "s/<TAG>/$TAG/" Dockerrun.aws.json
       - uses: actions/setup-python@v2
         with:
