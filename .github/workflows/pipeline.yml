@@ -18,17 +18,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
       - uses: actions/upload-artifact@v3
         with:
           name: ebconfig
           path: |
             backend/.elasticbeanstalk/config.yml
             backend/Dockerrun.aws.json
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'npm'
       - run: docker build -t $PROJECT_NAME/$MODULE_NAME $MODULE_NAME/.
       - run: docker tag $PROJECT_NAME/$MODULE_NAME:$TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$PROJECT_NAME/$MODULE_NAME:$TAG
       - run: aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
